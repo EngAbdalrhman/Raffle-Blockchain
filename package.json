@@ -6,9 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Abdalrhaman Mostafa & Patrik",
+  "author": "Abdalrhaman Mostafa & Patrick Collins",
   "license": "Unlicense",
   "devDependencies": {
+    "@chainlink/contracts": "^0.6.1",
     "@nomiclabs/hardhat-etherscan": "^3.1.7",
     "@nomiclabs/hardhat-waffle": "^2.0.6",
     "chai": "^4.3.8",
