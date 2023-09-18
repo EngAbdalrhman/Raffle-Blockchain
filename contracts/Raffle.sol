@@ -30,7 +30,7 @@ contract Raffle is VRFConsumerBaseV2, AutomationCompatibleInterface {
     uint private immutable i_entranceFee; // i for immutable hint
     address payable[] private s_participations; // pay to winner so payable , s for storage hint
     VRFCoordinatorV2Interface private immutable i_vrfCoordinator;
-    uint64 private immutable i_subscriptionId = 5309; // pick from https://vrf.chain.link/sepolia/new
+    uint64 private immutable i_subscriptionId; // = 5309; // pick from https://vrf.chain.link/sepolia/new
     bytes32 private immutable i_keyHash; // used to set max gaslimit
     //"0x8103B0A8A00be2DDC778e6e7eaa21791Cd364625"; // https://docs.chain.link/vrf/v2/subscription/supported-networks
     uint16 private constant REQUEST_CONFIRMATIONS = 3;
@@ -53,6 +53,7 @@ contract Raffle is VRFConsumerBaseV2, AutomationCompatibleInterface {
         address vrfCoordinatorV2,
         uint entranceFee,
         bytes32 gasLine,
+        uint64 subscriptionId,
         uint32 callbackGasLimit,
         uint256 interval // time we want the contract to choose a winner after
     ) payable VRFConsumerBaseV2(vrfCoordinatorV2) {
@@ -64,6 +65,7 @@ contract Raffle is VRFConsumerBaseV2, AutomationCompatibleInterface {
         s_prevBlockTimeStamp = block.timestamp;
         i_interval = interval;
         i_owner = payable(msg.sender); // to give the owner a precentage of the balance
+        i_subscriptionId = subscriptionId;
     }
 
     function enterRaffle() public payable {
