@@ -1,6 +1,9 @@
 // we can't have these functions in our `helper-hardhat-config`
 // since these use the hardhat library
 // and it would be a circular dependency
+
+// verifying the contract on etherscan?
+
 const { run } = require("hardhat");
 
 const verify = async (contractAddress, args) => {

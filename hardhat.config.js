@@ -29,8 +29,7 @@ const PRIVATE_KEY = process.env.PRIVATE_KEY;
 // const MNEMONIC = process.env.MNEMONIC || "your mnemonic";
 
 // Your API key for Etherscan, obtain one at https://etherscan.io/
-const ETHERSCAN_API_KEY =
-  process.env.ETHERSCAN_API_KEY || "Your etherscan API key";
+const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY;
 // const POLYGONSCAN_API_KEY =
 //   process.env.POLYGONSCAN_API_KEY || "Your polygonscan API key";
 const REPORT_GAS = process.env.REPORT_GAS || false;
@@ -72,6 +71,23 @@ module.exports = {
     //   saveDeployments: true,
     //   chainId: 137,
     // },
+  },
+  etherscan: {
+    // yarn hardhat verify --network <NETWORK> <CONTRACT_ADDRESS> <CONSTRUCTOR_PARAMETERS>
+    apiKey: {
+      sepolia: ETHERSCAN_API_KEY,
+      // polygon: POLYGONSCAN_API_KEY,
+    },
+    // customChains: [
+    //   {
+    //     network: "goerli",
+    //     chainId: 5,
+    //     urls: {
+    //       apiURL: "https://api-goerli.etherscan.io/api",
+    //       browserURL: "https://goerli.etherscan.io",
+    //     },
+    //   },
+    // ],
   },
   solidity: "0.8.19",
   namedAccounts: {
