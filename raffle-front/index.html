@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link href="style.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raffle (Dapp)</title>
+  </head>
+  <body>
+    <header class="main-eader">
+      <div class="section-0">
+        <!-- <img src="images/logo.png" width="50px" height="50px" /> -->
+        <!-- i tag self styled -->
+        <i class="material-icons logo" style="font-size: 45px">toll</i>
+        <h1>Raffle</h1>
+        <a href="#" class="nl">Use Case</a>
+      </div>
+
+      <nav class="navigator">
+        <a href="#" class="nl">White Paper</a>
+        <a href="#" class="nl">Investors</a>
+        <a href="#" class="nl">Resources</a>
+        <button class="btn_style btn_start">Get Started</button>
+      </nav>
+    </header>
+
+    <div class="content">
+      <button class="btn_style btn_connect">Connect</button>
+      <button class="btn_style btn_fee">Get Enterance Fee</button>
+      <button class="btn_style btn_address">Check Address</button>
+    </div>
+
+    <!-- <select>
+      dropdown list , test accounts balance
+    </select> -->
+    <div class="enter-container">
+      <div class="Amount-container">
+        <input class="Amount" placeholder="Enter Amount in Eth" type="number" />
+        <button class="btn_style btn_enter">Enter</button>
+      </div>
+      <input
+        class="player"
+        placeholder="Enter Participation Index"
+        type="number"
+      />
+      <button class="btn_style btn_player">Get Participation</button>
+      <button class="btn_style btn_req">Who Wins</button>
+    </div>
+    <div class="functions">
+      <button class="btn_style btn_recent_winner">getRecentWinner</button>
+      <button class="btn_style btn_state">getState</button>
+      <button class="btn_style btn_prev_time">getPrevTimeStamp</button>
+      <button class="btn_style btn_interval">getInterval</button>
+      <button class="btn_style btn_no_players">getNumberOfPlayers</button>
+    </div>
+    <div class="results">
+      <p>result:</p>
+      <p class="r"></p>
+    </div>
+
+    <script src="./scripts.js" type="module"></script>
+    <!-- type="module" -->
+  </body>
+  <footer class="myfooter">
+    <div class="COMPANY">
+      <i class="material-icons logo footer" style="font-size: 40px">toll</i>
+      <p>My First Cool web3 (Dapp)</p>
+    </div>
+    <div class="links"></div>
+
+    <p class="footer copyright">copyright 2023 &copy</p>
+  </footer>
+</html>
