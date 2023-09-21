@@ -69,6 +69,7 @@ contract Raffle is VRFConsumerBaseV2, AutomationCompatibleInterface {
     }
 
     function enterRaffle() public payable {
+        // payable function could override value and use payable attributes - could attemp receive()
         // require(msg.value >= i_entranceFee,"Not Enough Fee"); // not gas efficiant as revert
         if (msg.value < i_entranceFee) {
             revert Raffle__NOT_Enough_FEE();
@@ -107,11 +108,9 @@ contract Raffle is VRFConsumerBaseV2, AutomationCompatibleInterface {
         s_state = State.Open;
         s_participations = new address payable[](0); // reseting array to get new participations
         s_prevBlockTimeStamp = block.timestamp; // reseting the timestamp - update s_prevBlockTimeStamp to current when finished
-        (bool success, ) = winnerAddress.call{
-            value: (address(this).balance * 3) / 4
-        }(""); // making transaction to winner , available to payable address
-        (bool s, ) = i_owner.call{value: address(this).balance / 4}(""); // could use i_owner.transfer(address(this).balance / 4);
-        if (!success || !s) {
+        (bool success, ) = winnerAddress.call{value: address(this).balance}(""); // making transaction to winner , available to payable address
+        // (bool s, ) = i_owner.call{value: address(this).balance}(""); // could use i_owner.transfer(address(this).balance / 4);
+        if (!success) {
             revert Raffle__TransferFailed(); // instead of require
         }
         emit WinnerAnnounced(winnerAddress);

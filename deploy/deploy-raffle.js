@@ -5,7 +5,7 @@ const {
 } = require("../helper-hardhat-config");
 const { verify } = require("../utils/verify");
 
-const VRF_Fund = "10000000000000000000"; //ethers.utils.parseEther("1");
+const VRF_Fund = "10000000000000000"; //ethers.utils.parseEther("1");
 
 module.exports = async function ({ getNamedAccounts, deployments }) {
   const { deploy, log } = deployments;
@@ -58,7 +58,7 @@ module.exports = async function ({ getNamedAccounts, deployments }) {
     log: true,
     waitConfirmations: network.config.blockConfirmations || 1,
   });
-  log("raffle :" + JSON.stringify(raffle));
+  // log("raffle :" + JSON.stringify(raffle));
 
   // Ensure the Raffle contract is a valid consumer of the VRFCoordinatorV2Mock contract.
   if (developmentChains.includes(network.name)) {
