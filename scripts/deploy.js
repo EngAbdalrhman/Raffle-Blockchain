@@ -5,7 +5,7 @@
 // will compile your contracts, add the Hardhat Runtime Environment's members to the
 // global scope, and execute the script.
 const { ethers } = require("hardhat");
-
+// see deploy folder instead
 async function main() {}
 
 // We recommend this pattern to be able to use async/await everywhere
