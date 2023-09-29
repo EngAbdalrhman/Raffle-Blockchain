@@ -131,6 +131,7 @@ const {
         });
         it("reverts if checkup is false", async () => {
           await expect(raffle.performUpkeep("0x")).to.be.revertedWith(
+            // or pass [] to calldata
             "Raffle__UpkeepNotNeeded"
           );
         });
@@ -189,8 +190,8 @@ const {
 
           // This will be more important for our staging tests...
           await new Promise(async (resolve, reject) => {
-            raffle.once("WinnerPicked", async () => {
-              // event listener for WinnerPicked
+            raffle.once("WinnerAnnounced", async () => {
+              // event trigger/listener for WinnerAnnounced
               console.log("WinnerPicked event fired!");
               // assert throws an error if it fails, so we need to wrap
               // it in a try/catch so that the promise returns event
